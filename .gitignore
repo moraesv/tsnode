@@ -1,0 +1,7 @@
+node_modules/
+build/
+dist/
+dev.env
+test.env
+prod.env
+yarn-error.log
