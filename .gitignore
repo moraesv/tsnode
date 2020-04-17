@@ -6,3 +6,4 @@ test.env
 prod.env
 yarn-error.log
 .env
+.docker

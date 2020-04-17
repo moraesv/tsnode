@@ -1,4 +1,4 @@
-import { Sequelize, Dialect } from 'sequelize'
+import { Sequelize, Options } from 'sequelize'
 
 import databaseConfig from '../config/database'
 
@@ -15,10 +15,7 @@ class Database {
       databaseConfig.database,
       databaseConfig.username,
       databaseConfig.password,
-      {
-        ...databaseConfig,
-        dialect: databaseConfig.dialect as Dialect,
-      }
+      databaseConfig as Options
     )
 
     models

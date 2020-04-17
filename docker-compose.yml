@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  app:
+    container_name: tsnode-app
+    image: node:12.16.1
+    user: node
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - 3000:3000
+    environment:
+      - APP_URL=http://localhost
+      - APP_PORT=3333
+      - NODE_ENV=development
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=pensegrandedigital
+      - DB_HOST=localhost
+      - DB_PORT=5432
+      - DB_DIALECT=postgres
+      - APP_SECRET=tsnode
+
+    command: bash -c "yarn && yarn dev"
+  postgres:
+    container_name: tsnode-postgres
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=tsnode
+      - PGDATA=/tmp
+    volumes:
+      - ./.docker/volumes/postgresql:/var/lib/postgresql/data
