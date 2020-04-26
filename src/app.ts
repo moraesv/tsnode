@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import morgan from 'morgan'
 
 import routes from './app/routes'
 import './database'
@@ -17,6 +18,7 @@ class App {
   private middlewares(): void {
     this.express.use(express.json())
     this.express.use(cors())
+    this.express.use(morgan(':method :url :status :response-time'))
   }
 
   private routes(): void {

@@ -17,5 +17,7 @@ module.exports = {
   rules: {
     'space-before-function-paren': 0,
     'comma-dangle': 0,
+    'interface-name': 'never',
+    '@typescript-eslint/semi': ['error', 'never'],
   },
 }
